@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'devise'
 gem 'acts-as-taggable-on'
+gem 'figaro'
 
 group :development do
   gem 'spring'
