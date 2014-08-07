@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 gem 'bourbon'
 gem 'neat'
+gem 'devise'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'spring'
