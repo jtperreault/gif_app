@@ -1,4 +1,5 @@
-== About This Application
+About This Application
+======================
 
 This app was born from my personal struggle using Google to find specific
 reaction gifs. Really I just want to drop a couple keywords, tags even,
@@ -7,14 +8,11 @@ into a search box and get the gif I was looking for.
 I wrote this with Ruby 2.1.2 and PostgreSQL as the DB, you'll need them
 both. Previous versions of Ruby will likely work, though untested for now.
 
-* How to run the test suite
-bundle exec rspec
-
 Installing/Running
 ------------------
 Clone the repository to your machine and change into the directory.
 ```bash
-git clone https://github.com/jtperreault/gif_app.git && cd gif\_app
+git clone https://github.com/jtperreault/gif_app.git && cd gif_app
 ```
 
 Install the required Ruby gems.
