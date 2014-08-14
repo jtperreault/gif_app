@@ -3,18 +3,26 @@ class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy]
 
-  def index
-    @gifs = Gif.all
+  def show
   end
 
-  def show
+  def find
+  end
+
+  def edit
+  end
+
+  def index
+    @gifs = Gif.all
   end
 
   def new
     @gif = Gif.new
   end
 
-  def edit
+  def search
+    @search_params = ActsAsTaggableOn::TagListParser.parse(params['tags']).map { |tag| tag = "\"#{tag}\"" }
+    @gifs = Gif.tagged_with(params['tags'])
   end
 
   def create

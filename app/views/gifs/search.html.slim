@@ -1,0 +1,8 @@
+.search-container
+  - if @gifs.first
+    = render 'display'
+  - else
+    p Sorry, we couldn't find any gifs tagged with #{@search_params.to_sentence}.
+
+
+    p = link_to "Return to Search", root_path, class: 'button'

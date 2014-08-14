@@ -1,0 +1,8 @@
+.search-container
+  h1 home (search) page
+  = form_tag("/search", method: "get")
+    = label_tag(:tags, 'Search tags:')
+    = text_field_tag(:tags)
+    = submit_tag('Find Gifs', name: nil)
+  p = link_to 'View all gifs', all_gifs_path
+
