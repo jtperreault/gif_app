@@ -1,4 +1,4 @@
 .show-container
   h1 = @gif.title
   p = image_tag(@gif.url, class: "show-gif")
-  p = @gif.tag_list
+  p Tags: #{@gif.tag_list}

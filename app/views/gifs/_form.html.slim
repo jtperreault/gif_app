@@ -1,0 +1,19 @@
+= form_for @gif do |g|
+  - if @gif.errors.any?
+    #error_explanation
+      h2 "#{pluralize(@gif.errors.count, "error")}" prevented this gif from being saved:
+      ul
+        - @gif.errors.full_messages.each do |msg|
+          li= msg + '!'
+
+  .field
+    = g.label :title
+    = g.text_field :title
+  .field
+    = g.label :url
+    = g.text_field :url
+  .field
+    = g.label :tag_list, 'Tags'
+    = g.text_field :tag_list
+  .actions
+    = g.submit 'Save Gif'
