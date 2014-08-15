@@ -1,6 +1,7 @@
 // Vendor styles
 @import "bourbon";
-@import "neat";
 @import "base/base";
+@import "neat";
 
 .outer-container { @include outer-container;  }
+
