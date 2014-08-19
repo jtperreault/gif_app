@@ -1,8 +1,7 @@
 .search-container
   - if @gifs.first
-    = render 'display'
+    = render 'gifs/iterative_display'
   - else
     p Sorry, we couldn't find any gifs tagged with #{@search_params.to_sentence}.
+  p = link_to "Return to Search", root_path, class: 'button'
 
-
-    p = link_to "Return to Search", root_path, class: 'button'

@@ -6,10 +6,11 @@ Rails.application.routes.draw do
     get "/logout", to: "devise/sessions#destroy"
   end
 
-  root 'gifs#find'
+  root 'search#index'
+  get 'search', to: 'search#search'
+
   resources :gifs, path: '' do
     get 'all', on: :collection, to: 'gifs#index'
-    get 'search', on: :collection
   end
 
 end

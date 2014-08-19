@@ -6,9 +6,6 @@ class GifsController < ApplicationController
   def show
   end
 
-  def find
-  end
-
   def edit
   end
 
@@ -18,11 +15,6 @@ class GifsController < ApplicationController
 
   def new
     @gif = Gif.new
-  end
-
-  def search
-    @search_params = ActsAsTaggableOn::TagListParser.parse(params['tags']).map { |tag| tag = "\"#{tag}\"" }
-    @gifs = Gif.tagged_with(params['tags'])
   end
 
   def create

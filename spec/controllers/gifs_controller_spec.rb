@@ -194,21 +194,5 @@ describe GifsController do
 
   end
 
-  describe "GET #search" do
-    let!(:gif1) { create(:gif, tag_list: 'good, bad, indifferent') }
-    let!(:gif2) { create(:gif, tag_list: 'smart, good, bad, silly') }
-
-    before {
-      get :search, tags: 'good, bad'
-    }
-
-    it "populates an array of gifs" do
-      expect(assigns(:gifs)).to match_array([gif1, gif2])
-    end
-
-    it "renders the search view" do
-      expect(response).to render_template(:search)
-    end
-  end
-
 end
+
