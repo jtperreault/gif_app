@@ -5,4 +5,8 @@
     = text_field_tag(:tags)
     = submit_tag('Find Gifs', name: nil)
   p = link_to 'View all gifs', all_gifs_path
+  p
+    | Recent Tags: 
+    - @latest_tags.each do |t|
+      = link_to "#{t.name} ", search_path(tags: t.name)
 
