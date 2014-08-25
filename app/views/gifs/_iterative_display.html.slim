@@ -1,5 +1,6 @@
 - @gifs.each do |gif|
   p
-    => link_to gif.title, gif_path(gif)
-    = gif.tag_list
+    h2 => link_to gif.title, gif_path(gif)
+    | Tags: 
+    = format_tag_list_as_links(gif.tags).to_sentence.html_safe
 

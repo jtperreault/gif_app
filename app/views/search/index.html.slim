@@ -1,12 +1,14 @@
 .search-container
-  h1 home (search) page
+  h1 Find Gifs!
+  br
   = form_tag("/search", method: "get")
-    = label_tag(:tags, 'Search tags:')
-    = text_field_tag(:tags)
-    = submit_tag('Find Gifs', name: nil)
-  p = link_to 'View all gifs', all_gifs_path
+    = label_tag :tags, 'Search by tags'
+    = text_field_tag :tags, nil, placeholder: 'separate multiple tags by comma'
+    = submit_tag 'Find Gifs', name: nil
+    |   or
+    = link_to ' view all gifs.', all_gifs_path
+  br
   p
     | Recent Tags: 
-    - @latest_tags.each do |t|
-      = link_to "#{t.name} ", search_path(tags: t.name)
+    = format_tag_list_as_links(@latest_tags).to_sentence.html_safe
 
