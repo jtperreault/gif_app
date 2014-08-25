@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  helper FormattedLinkedTags
+
   def index
     @latest_tags = []
 

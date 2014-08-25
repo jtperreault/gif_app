@@ -1,4 +1,5 @@
 class GifsController < ApplicationController
+  helper FormattedLinkedTags
 
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :edit, :update, :create, :destroy]
