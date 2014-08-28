@@ -1,4 +1,8 @@
-.show-container
+.gif-container
   h1 = @gif.title
+  p = @gif.url
   p = image_tag(@gif.url, class: "show-gif")
-  p Tags: #{@gif.tag_list}
+  p Tags: #{ format_tag_list_as_links(@gif.tags).to_sentence.html_safe }
+  = render 'buttons' if admin_signed_in?
+  br
+  p = link_to "Return to Search", root_path, class: 'button'

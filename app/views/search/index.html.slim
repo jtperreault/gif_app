@@ -3,7 +3,7 @@
   br
   = form_tag("/search", method: "get")
     = label_tag :tags, 'Search by tags'
-    = text_field_tag :tags, nil, placeholder: 'separate multiple tags by comma'
+    = text_field_tag :tags, nil, placeholder: 'separate, multiple, tags, by, comma'
     = submit_tag 'Find Gifs', name: nil
     |   or
     = link_to ' view all gifs.', all_gifs_path
