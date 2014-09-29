@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def index
     @latest_tags = []
 
-    # This N+1 querying is not ideal, at all.
+    # This N+1 querying is not ideal, at all. However,
     # acts_as_taggable_on does not supporting eager loading yet:
     # https://github.com/mbleigh/acts-as-taggable-on/issues/91
     recent_gifs.each do |gif|

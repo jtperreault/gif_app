@@ -7,7 +7,7 @@ feature "User views" do
   before { visit all_gifs_path }
 
   scenario "all gifs" do
-    expect(page).to have_content('All Gifs')
+    expect(page).to have_content('All the Gifs!')
     expect(page).to have_content(gif1.title)
     expect(page).to have_content(gif2.title)
     expect(page).to have_content(gif3.title)
