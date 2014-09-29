@@ -11,9 +11,12 @@ feature 'Admin creates gif' do
     fill_in 'Url',   with: 'http://www.gifstore.fake/funniest.gif'
     fill_in 'Tags',  with: 'funny, hillarious'
 
-    click_button 'Save Gif'
+    expect {
+      click_button 'Save Gif'
+    }.to change(Gif, :count).by(1)
+
     expect(page).to have_content('Funniest Gif EVAR!1')
-    expect(page).to have_content('Tags: funny, hillarious')
+    expect(page).to have_content('Tags: funny and hillarious')
   end
 
   scenario 'with invalid attributes' do

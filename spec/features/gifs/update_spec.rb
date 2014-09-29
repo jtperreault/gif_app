@@ -15,7 +15,7 @@ feature 'Admin updates gif' do
     click_button 'Save Gif'
     expect(page).to have_content('Gif updated successfully!')
     expect(page).to have_content('Gif Name')
-    expect(page).to have_content('Tags: four, five, six')
+    expect(page).to have_content('Tags: four, five, and six')
   end
 
   scenario 'with invalid attributes' do
