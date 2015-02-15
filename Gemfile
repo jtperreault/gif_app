@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -21,6 +21,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-chruby'
   gem 'capistrano-bundler'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
