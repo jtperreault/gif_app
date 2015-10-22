@@ -1,7 +1,13 @@
+$desktop: new-breakpoint(min-width 768px);
+
 .gif-container {
   @extend %base-container;
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(4);
+
+  @include media($desktop) {
+    @include span-columns(10);
+    @include shift(1);
+  }
 }
 
 .gif-preview {

@@ -1,0 +1,7 @@
+p
+  h2 => link_to gif.title, gif, data: { id: gif.id }
+  | Tags: 
+  = format_tag_list_as_links(gif.tags).to_sentence.html_safe
+  .gif-preview
+    = image_tag gif.url, id: gif.id
+

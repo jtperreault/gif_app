@@ -1,12 +1,28 @@
-$ ->
-  $("a[data-id]").hover ((e) ->
-    gif_id = "#" + $(this).data("id")
+$(document).ready ->
+  console.log "doc ready"
+  ready
 
-    $(this).mousemove (e) ->
-      $(gif_id).parent().css({
+$(document).on "page:load", ->
+  console.log "page:load"
+  ready
+
+ready = ->
+  $("a[data-id]").hover ((e) ->
+    #gif_id = "#" + $(@).data("id")
+    console.log "hovered"
+    $(@).mousemove (e) ->
+      $(@).parent().css({
         left: e.pageX + 9,
         top: e.pageY + 1
-      }).show();
+      }).show()
   ), ->
-    $("#" + $(this).data("id")).parent().hide();
+    $("#" + $(@).data("id")).parent().hide()
+
+  $("#gif_tag_list").selectize
+    delimiter: ',',
+    persist: false,
+    create: ((input) ->
+      vaule: input,
+      text: input
+    )
 

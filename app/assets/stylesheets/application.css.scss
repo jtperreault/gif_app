@@ -1,26 +1,14 @@
 // Vendor styles
-@import "bourbon";
-@import "base/base";
-@import "neat";
+/*@import "bourbon";*/
+/*@import "base/base";*/
+/*@import "neat";*/
 
+@import "bootstrap";
+
+@import "layout";
 @import "gifs";
 @import "search";
 
-body {
-  background-color: #41A8Df;
-  margin-top: 30px;
-}
-
-.outer-container { @include outer-container;  }
-
-.button {
-  @extend %button;
-}
-
-%base-container {
-  background-color: white;
-  border-radius: 5px;
-  padding: 15px;
-  box-shadow: 0 0 3em gray;
-}
+@import "selectize";
+@import "selectize.default"
 

@@ -1,7 +1,7 @@
 .search-display
-  - if @gifs.first
+  - if @gifs.any?
     h1 Tagged with: #{ @search_params.to_sentence }
-    = render 'gifs/iterative_display'
+    = render partial: 'gifs/gifs', collection: @gifs, as: :gif
   - else
     p Sorry, we couldn't find any gifs tagged with #{@search_params.to_sentence}.
   p = link_to "Return to Search", root_path, class: 'button'

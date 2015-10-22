@@ -15,7 +15,7 @@ class SearchController < ApplicationController
 
   def search
     @search_params = quotify_search_params
-    @gifs = Gif.tagged_with(params['tags'])
+    @gifs = Gif.tagged_with(parse_tag_params)
   end
 
   private

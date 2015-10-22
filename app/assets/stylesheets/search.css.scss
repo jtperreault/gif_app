@@ -1,12 +1,8 @@
 .search-container {
   @extend %base-container;
-  @include span-columns(8);
-  @include shift(2);
 }
 
 .search-display {
   @extend %base-container;
-  @include span-columns(10);
-  @include shift(1);
 }
 
