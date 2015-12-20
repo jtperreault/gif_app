@@ -1,5 +1,5 @@
 .gif-container
   h1 All the Gifs!
-  = render partial: 'iterative_display', collection: @gifs, as: :gif
+  = render partial: 'gifs', collection: @gifs, as: :gif
   br
   p = link_to "Return to Search", root_path, class: 'button'
