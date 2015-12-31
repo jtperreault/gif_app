@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 feature "User searches" do
-  before {
-    visit root_path
-    create(:gif, title: 'Super awesome gif image', tag_list: 'Cool, Great, Awesome')
-  }
+  let!(:gif) { create(:gif, title: 'Super awesome gif image', tag_list: 'Cool, Great, Awesome') }
+  before { visit root_path }
 
   scenario "with existing tag" do
     fill_in 'Search', with: 'Awesome'
