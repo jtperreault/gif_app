@@ -36,7 +36,6 @@ describe GifsController do
   end
 
   describe "GET #new" do
-
     context "when authenticated" do
       before {
         sign_in admin
@@ -103,7 +102,6 @@ describe GifsController do
         expect(response).to redirect_to(new_admin_session_path)
       end
     end
-
   end
 
   describe "PUT #update" do
@@ -165,7 +163,7 @@ describe GifsController do
   end
 
   describe "DELETE #destroy" do
-    before { @resource = create(:gif) }
+    let!(:resource) { create(:gif) }
 
     context "when authenticated" do
       before {
@@ -174,24 +172,23 @@ describe GifsController do
 
       it "deletes the gif" do
         expect{
-          delete :destroy, id: @resource
+          delete :destroy, id: resource
         }.to change(Gif, :count).by(-1)
       end
 
       it "redirects" do
-        delete :destroy, id: @resource
+        delete :destroy, id: resource
         expect(response).to redirect_to(gifs_url)
       end
     end
 
     context "when NOT authenticated" do
-      before { delete :destroy, id: @resource }
+      before { delete :destroy, id: resource }
 
       it "redirects to sign in" do
         expect(response).to redirect_to(new_admin_session_path)
       end
     end
-
   end
 
 end
