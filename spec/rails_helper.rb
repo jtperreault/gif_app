@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -23,7 +24,15 @@ RSpec.configure do |config|
 
   # Lint all the factories before Rspec suite is run
   config.before(:suite) do
-    #FactoryGirl.lint
+    FactoryGirl.lint
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
