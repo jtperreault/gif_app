@@ -4,7 +4,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server ENV["CAP_SERVER"], user: ENV["CAP_USER"], roles: %w{web app}
+server ENV["CAP_SERVER"], user: ENV["CAP_USER"], roles: %w{web app db}
 set :stage, :production
 set :rails_env, :production
 set :branch, 'master'
