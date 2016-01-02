@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: gif_app_production
-  username: gif_app
-  password: <%= ENV['GIF_APP_DATABASE_PASSWORD'] %>
+  username: deploy
