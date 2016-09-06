@@ -14,7 +14,7 @@ describe SearchController do
 
   describe "GET #search" do
     context "with matching tags" do
-      before { get :search, tags: 'One, Two, Three' }
+      before { get :search, params: { tags: 'One, Two, Three' } }
 
       it "populates an array of gifs" do
         expect(assigns(:gifs)).to match_array(gifs)
@@ -26,7 +26,7 @@ describe SearchController do
     end
 
     context "without matching tags" do
-      before {get :search, tags: 'Four, Five, Six'}
+      before { get :search, params: { tags: 'Four, Five, Six' } }
 
       it "renders the :search view" do
         expect(response).to render_template(:search)

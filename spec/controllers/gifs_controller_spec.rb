@@ -23,7 +23,7 @@ describe GifsController do
     let(:gif) { create(:gif) }
 
     before {
-      get :show, id: gif
+      get :show, params: { id: gif }
     }
 
     it "assigns the requested gif to @gif" do
@@ -69,12 +69,12 @@ describe GifsController do
       context "with valid attributes" do
         it "creates a new gif" do
           expect{
-            post :create, gif: attributes_for(:gif)
+            post :create, params: { gif: attributes_for(:gif) }
           }.to change(Gif, :count).by(1)
         end
 
         it "redirects to the new gif" do
-          post :create, gif: attributes_for(:gif)
+          post :create, params: { gif: attributes_for(:gif) }
           expect(response).to redirect_to Gif.last
         end
       end
@@ -84,12 +84,12 @@ describe GifsController do
 
         it "does not save the gif" do
           expect{
-            post :create, gif: invalid_gif
+            post :create, params: { gif: invalid_gif }
           }.to_not change(Gif, :count)
         end
 
         it "again renders the :new method" do
-          post :create, gif: invalid_gif
+          post :create, params: { gif: invalid_gif }
           expect(response).to render_template :new
         end
       end
@@ -97,7 +97,7 @@ describe GifsController do
     end
 
     context "when NOT authenticated" do
-      before { post :create, gif: attributes_for(:gif) }
+      before { post :create, params: { gif: attributes_for(:gif) } }
       it "redirects to sign in" do
         expect(response).to redirect_to(new_admin_session_path)
       end
@@ -115,18 +115,18 @@ describe GifsController do
         let(:gif_attributes) { attributes_for(:gif) }
 
         it "finds the correct gif" do
-          put :update, id: resource, gif: gif_attributes
+          put :update, params: { id: resource, gif: gif_attributes }
           expect(assigns(:gif)).to eq(resource)
         end
 
         it "changes the gif's attributes" do
-          put :update, id: resource, gif: gif_attributes.merge( { title: "My Amazing Gif!" } )
+          put :update, params: { id: resource, gif: gif_attributes.merge( { title: "My Amazing Gif!" } ) }
           resource.reload
           expect(resource.title).to eq("My Amazing Gif!")
         end
 
         it "redirects to the updated gif" do
-          put :update, id: resource, gif: gif_attributes
+          put :update, params: { id: resource, gif: gif_attributes }
           expect(response).to redirect_to resource
         end
       end
@@ -135,18 +135,18 @@ describe GifsController do
         let(:invalid_gif_attributes) { attributes_for(:gif, title: "") }
 
         it "finds the correct gif" do
-          put :update, id: resource, gif: invalid_gif_attributes
+          put :update, params: { id: resource, gif: invalid_gif_attributes }
           expect(assigns(:gif)).to eq(resource)
         end
 
         it "does not change the gif's attributes" do
-          put :update, id: resource, gif: invalid_gif_attributes
+          put :update, params: { id: resource, gif: invalid_gif_attributes }
           resource.reload
           expect(resource.title).to eq("My Awesome Gif!")
         end
 
         it "again renders the :edit method" do
-          put :update, id: resource, gif: invalid_gif_attributes
+          put :update, params: { id: resource, gif: invalid_gif_attributes }
           expect(response).to render_template :edit
         end
       end
@@ -154,7 +154,7 @@ describe GifsController do
     end
 
     context "when NOT authenticated" do
-      before  { put :update, id: resource, gif: attributes_for(:gif) }
+      before  { put :update, params: { id: resource, gif: attributes_for(:gif) } }
       it "redirects to the sign in" do
         expect(response).to redirect_to(new_admin_session_path)
       end
@@ -172,23 +172,24 @@ describe GifsController do
 
       it "deletes the gif" do
         expect{
-          delete :destroy, id: resource
+          delete :destroy, params: { id: resource }
         }.to change(Gif, :count).by(-1)
       end
 
       it "redirects" do
-        delete :destroy, id: resource
+        delete :destroy, params: { id: resource }
         expect(response).to redirect_to(gifs_url)
       end
     end
 
     context "when NOT authenticated" do
-      before { delete :destroy, id: resource }
+      before { delete :destroy, params: { id: resource } }
 
       it "redirects to sign in" do
         expect(response).to redirect_to(new_admin_session_path)
       end
     end
+
   end
 
 end
