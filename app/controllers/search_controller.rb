@@ -25,7 +25,7 @@ class SearchController < ApplicationController
   end
 
   def parse_tag_params
-    ActsAsTaggableOn::TagListParser.parse(params['tags'])
+    ActsAsTaggableOn::DefaultParser.new(params['tags']).parse
   end
 
   def recent_gifs
