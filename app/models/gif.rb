@@ -1,4 +1,4 @@
-class Gif < ActiveRecord::Base
+class Gif < ApplicationRecord
   acts_as_ordered_taggable
 
   validates :title,     presence: true
