@@ -1,28 +1,22 @@
 $(document).ready ->
-  console.log "doc ready"
-  ready
+  apply_preview_hover()
 
 $(document).on "page:load", ->
-  console.log "page:load"
-  ready
+  apply_preview_hover()
 
-ready = ->
+
+apply_preview_hover = ->
+
   $("a[data-id]").hover ((e) ->
-    #gif_id = "#" + $(@).data("id")
-    console.log "hovered"
+    preview = $("div[data-preview-id=#{$(@).data('id')}]")
+
     $(@).mousemove (e) ->
-      $(@).parent().css({
+
+      $(preview).css({
         left: e.pageX + 9,
         top: e.pageY + 1
       }).show()
+
   ), ->
-    $("#" + $(@).data("id")).parent().hide()
 
-  $("#gif_tag_list").selectize
-    delimiter: ',',
-    persist: false,
-    create: ((input) ->
-      vaule: input,
-      text: input
-    )
-
+    $( "#" + $(@).data("id") ).parent().hide()
