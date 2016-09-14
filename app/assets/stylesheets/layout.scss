@@ -1,9 +1,10 @@
 body {
-  background-color: #41A8Df;
   margin-top: 30px;
 }
 
-.outer-container { @include outer-container;  }
+.outer-container {
+  @include outer-container;
+}
 
 .button {
   @extend %button;
