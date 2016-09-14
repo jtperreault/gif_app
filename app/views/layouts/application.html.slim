@@ -8,8 +8,5 @@ html
     = csrf_meta_tags
 
   body
-    .outer-container
-      = render "layouts/messages"
-
-      = yield
-
+    = render "layouts/messages"
+    = yield
