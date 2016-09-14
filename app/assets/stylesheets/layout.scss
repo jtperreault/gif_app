@@ -1,19 +1,4 @@
 body {
-  margin-top: 30px;
-}
-
-.outer-container {
   @include outer-container;
+  max-width: 64em;
 }
-
-.button {
-  @extend %button;
-}
-
-%base-container {
-  background-color: white;
-  border-radius: 5px;
-  padding: 15px;
-  box-shadow: 0 0 3em gray;
-}
-
