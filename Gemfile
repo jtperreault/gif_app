@@ -20,8 +20,6 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'figaro'
 
-gem 'responders', '~> 2.0'
-
 # Server
 gem 'puma'
 
