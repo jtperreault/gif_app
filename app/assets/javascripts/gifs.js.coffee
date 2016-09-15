@@ -1,7 +1,4 @@
-$(document).ready ->
-  apply_preview_hover()
-
-$(document).on "page:load", ->
+$(document).on "turbolinks:load", ->
   apply_preview_hover()
 
 
