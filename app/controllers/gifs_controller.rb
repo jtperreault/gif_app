@@ -42,18 +42,11 @@ class GifsController < ApplicationController
   end
 
 private
-
   def gif_params
-    params.require(:gif).permit(
-      :title,
-      :url,
-      :tag_list
-    )
+    params.require(:gif).permit(:title, :url, :tag_list)
   end
 
   def set_gif
     @gif = Gif.find(params[:id])
   end
-
 end
-
