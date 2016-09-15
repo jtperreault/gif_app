@@ -10,4 +10,3 @@ module AuthHelpers
 end
 
 RSpec.configure { |c| c.include AuthHelpers }
-
