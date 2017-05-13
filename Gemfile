@@ -16,7 +16,7 @@ gem 'turbolinks', '~> 5'
 
 # View
 gem 'slim-rails'
-gem 'bourbon'
+gem 'bourbon', github: 'thoughtbot/bourbon'
 gem 'neat'
 gem 'selectize-rails'
 
