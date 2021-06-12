@@ -26,7 +26,7 @@ gem 'acts-as-taggable-on'
 gem 'figaro'
 
 # Server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
