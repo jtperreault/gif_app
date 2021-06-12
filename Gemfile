@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.1.0'
 
 # Data
+gem 'acts-as-taggable-on'
 gem 'pg', '~> 0.18'
 
 gem 'coffee-rails', '~> 4.2'
@@ -19,14 +20,13 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 # View
-gem 'slim-rails'
 gem 'bourbon', github: 'thoughtbot/bourbon'
 gem 'neat'
 gem 'selectize-rails'
+gem 'slim-rails'
 
 # Auth
 gem 'devise', github: 'plataformatec/devise'
-gem 'acts-as-taggable-on'
 gem 'figaro'
 
 # Server
@@ -43,13 +43,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano-bundler'
+  gem 'capistrano-chruby'
+  gem 'capistrano-rails'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'capistrano-rails'
-  gem 'capistrano-chruby'
-  gem 'capistrano-bundler'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
