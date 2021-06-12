@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.0'
 
 # Data
 gem 'acts-as-taggable-on'
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.2'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
